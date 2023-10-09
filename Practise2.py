@@ -1,0 +1,1 @@
+print("Billo Bagge billiye\nkiya te kare gi\n\t bagge bagge billia kiya te kari?")
