@@ -15,3 +15,10 @@ y = {"brand": "Nissan",
   "year": 1998
 }
 print(y["model"])
+
+#4
+z = {"brand": "Toyota",
+  "model": "Trueno",
+  "year": 1986
+}
+print(z["model"],type(z))
