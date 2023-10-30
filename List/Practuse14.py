@@ -22,3 +22,4 @@ z = {"brand": "Toyota",
   "year": 1986
 }
 print(z["model"],type(z))
+
