@@ -1,0 +1,1 @@
+#write a program in which you can display a list of you favourite things and print the list 
