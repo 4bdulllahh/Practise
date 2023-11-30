@@ -30,3 +30,4 @@ chips_big = {"takis(26)":"3 dhs",
 "Buggles(29)":"3 dhs",
 "Cheetos(30)":"3 dhs"}
 items = [water,drinks,jelly,juices,chips_small,chips_big] ## storing the Menu
+print(items)
