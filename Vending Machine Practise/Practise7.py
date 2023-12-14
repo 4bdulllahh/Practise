@@ -6,13 +6,49 @@ juices = {"Apple juice(16)":"2 dhs","Mango juice(17)":"2 dhs","Orange juice(18)"
 chips_small = {"Lays(Salt)(21)":"1 dhs","Lays(Cheese)(22)":"1 dhs","Lays(Tomato)(23)":"1 dhs","Lays(Chilli)(24)":"1 dhs","Lays(Salt & Vinger)(25)":"1 dhs"}
 chips_big = {"takis(26)":"3 dhs","Doritos(27)":"3 dhs","Pringle(28)":"3 dhs","Buggles(29)":"3 dhs","Cheetos(30)":"3 dhs"}
 items = [water,drinks,jelly,juices,chips_small,chips_big] ## storing the Menu
-print("Below are the items present in the vending machine:-") ##Displaying the menu in neat form
-print("- Al ain(01):1 dhs - Masafi(02):1 dhs - Oasis(03):1 dhs - Aquafina(04):1 dhs - Arwa(05):1 dhs.")
-print("- Coca cola(06):2.5 dhs - 7 up(07):2.5 dhs - Pepsi(08):2.5 dhs - Mountain dew(09):2.5 dhs - Fanta(10):2.5 dhs.")
-print("- Fruit jelly(11):0.5 dhs - Gummy bears(12):1 dhs - Jelly beans(13):5 dhs - Soda jelly(14):0.5 dhs - Sour jelly(15):1 dhs.")
-print("- Apple juice(16):2 dhs - Mango juice(17):2 dhs - Orange juice(18):2 dhs - Grape juice(19):2 dhs - Mix fruit juice(20):2 dhs.")
-print("- Lays(Salt)(21):1 dhs - Lays(Cheese)(22):1 dhs - Lays(Tomato)(23):1 dhs - Lays(Chilli)(24):1 dhs - Lays(Salt & Vinger)(25):1 dhs")
-print("- takis(26):3 dhs - Doritos(27):3 dhs - Pringle(28):3 dhs - Buggles(29):3 dhs - Cheetos(30):3 dhs")
+print("Welcome to the Vending Machine! Below are the available items:")
+print("\nBottled Water:")
+print("- Al Ain (01): 1 DHS")
+print("- Masafi (02): 1 DHS")
+print("- Oasis (03): 1 DHS")
+print("- Aquafina (04): 1 DHS")
+print("- Arwa (05): 1 DHS")
+
+print("\nSoft Drinks:")
+print("- Coca Cola (06): 2.5 DHS")
+print("- 7 Up (07): 2.5 DHS")
+print("- Pepsi (08): 2.5 DHS")
+print("- Mountain Dew (09): 2.5 DHS")
+print("- Fanta (10): 2.5 DHS")
+
+print("\nCandies and Snacks:")
+print("- Fruit Jelly (11): 0.5 DHS")
+print("- Gummy Bears (12): 1 DHS")
+print("- Jelly Beans (13): 5 DHS")
+print("- Soda Jelly (14): 0.5 DHS")
+print("- Sour Jelly (15): 1 DHS")
+
+print("\nFruit Juices:")
+print("- Apple Juice (16): 2 DHS")
+print("- Mango Juice (17): 2 DHS")
+print("- Orange Juice (18): 2 DHS")
+print("- Grape Juice (19): 2 DHS")
+print("- Mix Fruit Juice (20): 2 DHS")
+
+print("\nChips and Snacks:")
+print("- Lays (Salt) (21): 1 DHS")
+print("- Lays (Cheese) (22): 1 DHS")
+print("- Lays (Tomato) (23): 1 DHS")
+print("- Lays (Chilli) (24): 1 DHS")
+print("- Lays (Salt & Vinegar) (25): 1 DHS")
+
+print("\nPremium Snacks:")
+print("- Takis (26): 3 DHS")
+print("- Doritos (27): 3 DHS")
+print("- Pringles (28): 3 DHS")
+print("- Bugles (29): 3 DHS")
+print("- Cheetos (30): 3 DHS")
+
 addi = 0 #declared variable
 finished_order = [] ##list for the ordered items
 while True: ##Taking the money as input
