@@ -403,4 +403,4 @@ while True: ##Loop for the order
 print("Your order:-") ## display order and reciept
 print(finished_order)
 print("Your spare change:",addi)      
-print("Thank you for the purchase.")
+print("Thank you for the purchase.")  
