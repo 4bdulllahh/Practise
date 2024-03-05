@@ -398,7 +398,7 @@ while True: ##Loop for the order
         extra = float(input("The extra amount: "))
         addi = addi + extra
         continue
-      elif k=='NO' or k=='no' or k=='No':
+      elif k=='NO' or k=='no' or k=='No': 
         break  
 print("Your order:-") ## display order and reciept
 print(finished_order)
