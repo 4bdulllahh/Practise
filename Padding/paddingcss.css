@@ -1,3 +1,9 @@
 #para{
+width : 60%;
+float: left;
+}
 
+#section{
+    width: 30%;
+    float: right;
 }
