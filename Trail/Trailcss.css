@@ -1,0 +1,195 @@
+/* ---Glossary--- */
+
+/* Each property has been defined in the glossary for ease of access for the reader. (I also used it to properly reference my comments.) */
+
+/* ---Box Model--- */
+/* box-sizing: This defines how an element's height and width are assigned. */
+
+/* ---Margin and Padding--- */
+/* margin: Used to change the area surrounding an element. */
+/* padding: Used to change an element's inner padding. */
+
+/* ---Position Styling--- */
+/* position: Indicates how an element is to be positioned. */
+/* Z-index: Using z-index will determine the order of how a positioned element stacks. */
+
+/* ---Text Related Styling--- */
+/* font-family: Specifies which font or fonts to be used. */
+/* font-size: Changes the font size. */
+/* box-shadow: Using this produces shadows surrounding the border of the element. */
+/* color: Used to sets the text's color. */
+/* background-color: Adjusts an element's background color. */
+
+/* ---Flexbox Styling--- */
+/* justify-content: This sets flex elements to align with the flex container's main axis. */
+/* align-items: This aligns flex items with the flex container's cross axis. */
+/* flex-wrap: Indicates whether or not flex objects need to be wrapped. */
+
+/* ---Transitions and Transformations--- */
+/* transition: This indicates how CSS properties will transition. */
+/* filter: Applies graphical effects like blur, grayscale, etc. */
+
+/* Applying box-sizing globally to include padding and border in element's total width and height */
+* {
+    box-sizing: border-box;
+    /* box-sizing is set to border-box so that padding and border are included in the element's total width and height. */
+    margin: 0;
+    /* Margin is set to 0 to remove any default margin. */
+    padding: 0;
+    /* Padding is set to 0 to remove any default padding. */
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    /* Font-family is set to provide a fallback font for different elements. */
+}
+
+/* Setting styles for the body element */
+body {
+    margin: 0;
+    /* Used to change the margin to 0 */
+    padding: 0;
+    /* Used to change the entire page's inner padding to 0 */
+    width: 100%;
+    /* Taking full width of the viewport */
+    height: 100%;
+    /* Taking full height of the viewport */
+    text-align: center;
+    /* Adjusts the text's horizontal alignment to center */
+}
+
+/* Styling for a container element */
+.container {
+    position: relative;
+    /* Indicates how an element is to be positioned, in this case, Relatively. */
+    width: 100%;
+    height: auto;
+    /* Allows an element's height to be determined by the content within it. */
+    overflow: hidden;
+    /* Defines what happens when content overflows an element's box to the brim. */
+}
+
+/* Styling for a background image element */
+.background-image {
+    position: absolute;
+    /* Indicates how an element is to be positioned, in this case, Absolutely. */
+    top: 0;
+    /* Distance between the top edge of the positioned element and the top edge of its containing block. */
+    left: 0;
+    /* Distance between the left edge of the positioned element and the left edge of its containing block. */
+    width: 100%;
+    /* Sets the width of the element to 100%. */
+    height: 100%;
+    /* Sets the height of the element to 100%. */
+    background-image: url("Images/background image.jpg.jpg");
+    /* Find the image url to use as the background. */
+    background-size: cover;
+    /* Sets background-size to cover the entire page. */
+    background-position: center;
+    /* Centers the background. */
+    background-repeat: no-repeat;
+    /* Ensures that the background wont repeat whenever the user is scrolling through the page. */
+    z-index: -2;
+    /* Using z-index will determine the order of how a positioned element stacks. */
+}
+
+/* Styling for a semi-transparent overlay layer */
+.dark-layer {
+    position: absolute;
+    /* Indicates how an element is to be positioned, in this case, Absolutely. */
+    top: 0;
+    /* Distance between the top edge of the positioned element and the top edge of its containing block. */
+    left: 0;
+    /* Distance between the left edge of the positioned element and the left edge of its containing block. */
+    width: 100%;
+    /* Sets the width of the element to 100%. */
+    height: 100%;
+    /* Sets the height of the element to 100%. */
+    background-color: rgba(0, 0, 0, 0.4);
+    /* Adjusts an element's background color. */
+    z-index: -1;
+    /* Using z-index will determine the order of how a positioned element stacks. */
+}
+
+/* Styling for h1 elements within body */
+body h1 {
+    margin: 0px 235px;
+    /* Used to change the margin to 0px on the top and bottom, and 235px on the left and right */
+    font-size: 100px;
+    /* Changes the font size. */
+    border: 5px solid yellow;
+    /* Creates a border surrounding the element. */
+    padding-left: 20%;
+    /* Used to change an element's inner padding to 20% */
+    padding-right: 20%;
+    /* Used to change an element's inner padding to 20% */
+    background-color: palevioletred;
+    /* Adjusts an element's background color to palevioletred. */
+    box-shadow: 8px 8px 8px violet;
+    /* Using this produces a purple shadow surrounding the border of the element. */
+    color: white;
+    /* Used to set the text's color. */
+}
+
+/* Styling for figcaption elements */
+figcaption {
+    position: relative;
+    /* Indicates how an element is to be positioned, in this case, Relatively. */
+    margin-left: 20%;
+    /* Used to change the margin to 20% on the left */
+    margin-right: 20%;
+    /* Used to change the margin to 20% on the right */
+    font-size: 32px;
+    /* Changes the font size to 32px. */
+    font-weight: normal;
+    /* Specifies a text's character thickness. */
+    border: 5px solid palevioletred;
+    /* Creates a palevioletred border surrounding the element. */
+    background-color: palegoldenrod;
+    /* Adjusts an element's background color to palegoldenrod. */
+}
+
+/* Styling for image elements within .Images container */
+.Images .Image1,
+.Images .Image2,
+.Images .Image3 {
+    border: 10px solid palevioletred;
+    /* Creates a palevioletred border surrounding the element. */
+    margin: 2% auto;
+    /* Used to change the margin to 2% on top and bottom, and auto on left and right */
+    transition: filter 0.5s;
+    /* This indicates how CSS properties will transition. */
+    box-shadow: 16px 16px 16px violet;
+    /* Using this produces shadows surrounding the border of the element. */
+}
+
+/* Hover effect for Image1 */
+.Images .Image1:hover {
+    filter: blur(5px);
+    /* Applies graphical effects, in this case, Blur */
+}
+
+/* Hover effect for Image2 */
+.Images .Image2:hover {
+    filter: sepia();
+    /* Applies graphical effects in this case, Sepia  */
+}
+
+/* Hover effect for Image3 */
+.Images .Image3:hover {
+    filter: invert();
+    /* Applies graphical effects in this case, Invert  */
+}
+
+/* Styling for footer element */
+footer {
+    margin-top: 3%;
+    /* Used to change the margin to 3% on the top */
+    font-size: 24px;
+    /* Changes the font size. */
+    font-weight: normal;
+    /* Specifies a text's character thickness. */
+    background-color: purple;
+    /* Adjusts an element's background color. */
+    padding: 5px;
+    /* Used to change an element's inner padding to 5px */
+    color: white;
+    /* Used to sets the text's color. */
+}
