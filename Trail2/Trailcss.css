@@ -1,0 +1,106 @@
+* {
+    box-sizing: border-box;
+    /* box-sizing is set to border-box so that padding and border are included in the element's total width and height. */
+    margin: 0;
+    /* Margin is set to 0 to remove any default margin. */
+    padding: 0;
+    /* Padding is set to 0 to remove any default padding. */
+}
+
+header {
+    background-color: #17072b;
+    padding: 10px 10px;
+    text-align: center;
+}
+
+header h1 {
+    margin-top: 10px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 700;
+    text-decoration: underline;
+    color: white;
+    margin-bottom: 12px;
+}
+
+body p,h2  {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 400;
+}
+
+nav {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+nav a{
+    color:white;
+    text-decoration: none;
+    margin: 10px 8px;
+    font-size: 20px;
+}
+
+main {
+    float: left;
+    margin-bottom: 5px;
+    margin-left: 2px;
+}
+
+main h2 {
+    margin: 10px 30px;
+    text-decoration: underline;
+    font-weight: bold;
+}
+
+main p {
+    margin-left: 30px;
+    text-align: justify;
+} 
+
+.MainImage {
+    margin: 10px 30px;
+    width: 630px;
+}
+
+aside {
+    float: right;
+    background-color:#172d67;
+    margin-top: 5px;
+    padding: 12px 40px;
+    padding-right: px;
+    padding-left: 20px;
+}
+
+aside h2 {
+    color: white;
+    font-size: bolder;
+    text-decoration: underline;
+    margin-bottom: 20px;
+    font-size: 28px;
+}
+
+aside li {
+    color: white;
+    font-size: bolder;
+    margin-right: 20px;
+    margin-top: 5px;
+    margin-bottom: 15px;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+ul {
+    list-style-type:'-';
+}
+
+.smallimages {
+    margin-top: 47px;
+}
+
+footer {
+    font-family: Arial, Helvetica, sans-serif;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    padding: 5px;
+    background-color: #8c15e9;
+    color: white;
+    text-align: center;
+}
