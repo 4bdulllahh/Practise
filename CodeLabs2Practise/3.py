@@ -1,0 +1,5 @@
+print("Abd")
+full_name=("AbdKam")
+print(full_name)
+full_namee = input()
+print(full_namee)
