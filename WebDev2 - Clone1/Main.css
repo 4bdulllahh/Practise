@@ -35,7 +35,7 @@ body {
     display: inline-block; /* Ensures the logo is inline */
     line-height: 120px; /* Centers the logo vertically */
     text-align: center; /* Centers text horizontally */
-    background-image: url('logo.png'); /* Logo image */
+    background-image: url("Images/logo.jpg"); /* Logo image */
     background-size: 120%;  /*Resizes the logo to fit the container */
     background-position: center; /* Centers the image */
     background-repeat: no-repeat; /* Prevents the image from repeating */
