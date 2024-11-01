@@ -1,0 +1,416 @@
+@import url('https://fonts.googleapis.com/css2?family=Protest+Guerrilla&display=swap');
+
+/* Basic styles for the entire page */
+
+body {
+    font-family: 'Josefin Sans', sans-serif; /* sets the font for the body */
+    background-color: #d3d3d3; /* Light gray background color */
+    margin: 0; /* No margin around the body */
+    padding: 0; /* No padding inside the body */
+}
+
+/* Styling for the main container */
+
+.container {
+    background-color: white; /* White background for the container */
+    width: 80%; /* Container takes up 80% of the width */
+    margin: 20px auto; /* Centers the container with margin */
+
+}
+
+/* Header styling */
+
+.header {
+    text-align: center; /* Centers the header text */
+    margin-bottom: 20px; /* Space below the header */
+}
+
+/* Logo styles */
+
+.header .logo {
+    width: 120px;  /* Width of the logo */
+    height: 120px; /* Height of the logo */
+    border-radius: 50%; /* Makes the logo circular */
+    border: 2px solid #000; /* Black border around the logo */
+    display: inline-block; /* Ensures the logo is inline */
+    line-height: 120px; /* Centers the logo vertically */
+    text-align: center; /* Centers text horizontally */
+    background-image: url('logo.png'); /* Logo image */
+    background-size: 120%;  /*Resizes the logo to fit the container */
+    background-position: center; /* Centers the image */
+    background-repeat: no-repeat; /* Prevents the image from repeating */
+}
+
+/*  Navigation bar styles */
+.nav {
+    display: flex; /* Makes the nav bar horizontal */
+    justify-content: center; /* Centers the nav bar */
+    margin-bottom: 40px; /* Space below the nav bar */
+    gap: 40px; /* Space between the links */
+}
+
+.nav a {
+    text-decoration: none; /* Removes the underline */
+    color: black; /* Sets the text color */
+    font-size: 1.2em; /* Sets the font size */
+}
+
+/* Title and subtitle styling */
+.main-title {
+    font-family: "Protest Guerrilla"; /* Sets the font family */
+    font-weight: bold; /* Sets the font weight */
+    text-align: left;  /* Aligns title to the left */
+    
+}
+
+.introduction {
+    padding: 50px; /* Space around the introduction */
+    padding-bottom: 0px;  /* Removes space below the introduction */
+
+}
+
+.main-title h1 {
+    font-size: 2em; /* Sets the font size */
+    margin: 0; /* Removes default margin */
+}
+
+.sub-title h2 {
+    margin: 0%; /* Removes default margin */
+}
+
+.sub-title {
+    font-size: 24px; /* Sets the font size */
+    text-align: left;  /* Align to the left */
+    margin-bottom: 40px; /* Space below the subtitle */
+    font-family: "Protest Guerrilla"; /* Sets the font family */
+}
+/* content-contai styling */
+
+.content-container {
+    width: 100%; /* Container takes up 100% of the width */
+    margin: 20px 0; /* Space around the container */
+}
+
+.text-item {
+    margin-bottom: 15px; /* Space between the text items */
+    font-size: 16px;      /* Text size */
+    line-height: 1.2;     /* Line spacing for readability */
+}
+.first-paragraph {
+    margin: 0; /* Removes default margin */
+    font-size: 18px; /* Sets the font size */
+}
+
+/* Content section */
+.grid-container {
+    column-count: 3; /* Sets the number of columns */
+    padding: 50px;   /* Space around the grid */
+    padding-top: 0px; /* Removes space above the grid */
+}
+
+h1 {
+    font-family: "Protest Guerrilla"; /* Sets the font family */
+}
+
+.heading {
+    font-size: 70px; /* Sets the font size */
+    font-weight: bold; /* Sets the font weight */
+    margin-bottom: 15px; /* Space below the heading */
+}
+
+p {
+    font-size: 16px; /* Sets the font size */
+    line-height: 1.5; /* Sets the line height */
+    margin-bottom: 10px; /* Space below the paragraph */
+}
+
+/* Albums section styling */
+
+.albums {
+    display: flex; /* Makes the albums section horizontal */
+    width: 100%; /* Container takes up 100% of the width */
+    gap: 0px;
+}
+.albums .featured-album {
+    width: 50%; /* Sets the width of the featured album */
+    display: flex; /* Makes the featured album horizontal */
+    align-items: center; /* Aligns the featured album vertically */
+    justify-content: center; /* Aligns the featured album horizontally */
+    font-size: 18px; /* Sets the font size */
+}
+.albums .album-covers {
+    width: 50%; /* Sets the width of the album covers */
+    display: flex; /* Makes the album covers horizontal */
+    flex-wrap: wrap; /* Allows the album covers to wrap to the next line if there is not enough space */
+}
+.albums .album-covers {
+    width: 50%; /* Sets the width of the album covers */
+    display: flex; /* Makes the album covers horizontal */
+    align-items: center; /* Aligns the album covers vertically */
+    justify-content: center; /* Aligns the album covers horizontally */
+    font-size: 14px; /* Sets the font size */
+}
+
+.albums .album-covers .album-cover{
+    width: 50%; /* Sets the width of the album covers */
+}
+
+/* Author section styling */
+.author-section {
+    display: flex; /* Makes the author section horizontal */
+    align-items: center; /* Aligns the author section vertically */
+    justify-content: center; /* Aligns content to the left */
+    width: 100%; /* Container takes up 100% of the width */
+    padding-bottom: 20px; /* Space below the author section */
+    margin: 20px 0; /* Space above and below the author section */
+}
+
+.text-section {
+    max-width: 60%; /* Controls the width of the text */
+    text-align: left; /* Aligns text to the left */
+}
+
+.text-section h1 {
+    text-align: center; /* Centers the text */
+}
+
+.profile {
+    width: 150px;  /* Sets the width of the profile */
+    height: 150px; /* Sets the height of the profile */
+    border: 2px solid #000; /* Sets the border of the profile */
+    border-radius: 50%; /* Makes the profile circular */
+    display: flex; /* Makes the profile horizontal */
+    align-items: center; /* Aligns the profile vertically */
+    justify-content: center; /* Aligns the profile horizontally */
+    overflow: hidden;  /* Hides any content that overflows the profile */
+}
+
+.profile-img {
+    width: 100%; /* Sets the width of the profile image */
+    height: 100%; /* Sets the height of the profile image */
+    border-radius: 50%;  /* Makes the profile image circular */
+    object-fit: cover; /* Sets the image to cover the profile */
+}
+
+.footer {
+    margin-top: 20px; /* Space above the footer */
+    font-size: 14px; /* Sets the font size */
+    text-align: center; /* Center the footer text */
+    background-color: #14181d; /* Sets the background color */
+    color: aliceblue; /* Sets the text color */
+    padding: 20px; /* Space around the footer */
+}
+
+/* Media Queries for responsiveness */
+
+/* Small Mobile (360px-539px) */
+@media (max-width: 539px) {
+    .header .logo {
+        width: 80px;  /* Adjusts the logo width */
+        height: 80px; /* Adjusts the logo height */
+    }
+
+    .nav {
+        gap: 12px; /* Adjusts the gap between links */
+    }
+
+    .main-title {
+        font-size: 24px; /* Adjusts the font size */
+    }
+
+    .sub-title {
+        font-size: 16px; /* Adjusts the font size */
+    }
+
+    .container {
+        padding: 12px; /* Adjusts the padding */
+    }
+
+    .albums {
+        flex-direction: column; /* Makes the albums section vertical */
+    }
+
+    .albums .featured-album{
+        display: none;  /* Hides the featured album */
+    }
+
+    .albums .featured-album,
+    .albums .album-covers {
+        width: 100%; /* Sets the width of the album covers */
+        flex-direction: column; /* Makes the album covers vertical */
+    }
+
+    .albums .album-covers .album-cover{
+        width: 100%; /* Sets the width of the album covers */
+    }
+
+    .albums .album-cover img{
+        width: 100%; /* Sets the width of the album covers */
+    }
+
+    .grid-container {
+        column-count: 1; /* Adjusts the number of columns */
+    }
+
+    .grid-container h1{
+        text-align: center; /* Centers the heading */
+    }
+
+    .author-section {
+        flex-direction: column-reverse; /* Makes the author section vertical */
+
+    }
+
+    .profile {
+        width: 100px;  /* Sets the width of the profile */
+        height: 100px; /* Sets the height of the profile */
+        margin-bottom: 12px; /* Adjusts the margin */
+    }
+
+    .text-section {
+        max-width: 100%; /* Sets the maximum width of the text */
+    }
+
+    .text-section h1 {
+        text-align: center; /* Centers the heading */
+    }
+}
+
+/* Large Mobile (540px-719px) */
+@media (min-width: 540px) and (max-width: 719px) {
+    .header .logo {
+        width: 80px;  /* Adjusts the logo width */
+        height: 80px; /* Adjusts the logo height */
+    }
+
+    .nav {
+        gap: 20px; /* Adjusts the gap between links */
+    }
+
+    .main-title {
+        font-size: 32px; /* Adjusts the font size */
+    }
+
+    .sub-title {
+        font-size: 20px; /* Adjusts the font size */
+    }
+
+    .container {
+        padding: 20px; /* Adjusts the padding */
+    }
+
+    .albums .featured-album{
+        display: none;  /* Hides the featured album */
+    }
+
+    .albums .featured-album,
+    .albums .album-covers {
+        width: 100%; /* Sets the width of the album covers */
+    }
+
+    .albums .featured-album,
+    .albums .album-covers img {
+        height: 100%; /* Sets the height of the album covers */
+    }
+
+
+    .grid-container {
+        column-count: 1; /* Adjusts the number of columns */
+    }
+
+    .grid-container h1{
+        text-align: center; /* Centers the heading */
+    }
+
+    .profile {
+        width: 120px;  /* Sets the width of the profile */
+        height: 120px; /* Sets the height of the profile */
+    }
+}
+
+/* Tablet (720px-1023px) */
+@media (min-width: 720px) and (max-width: 1023px) {
+    .header .logo {
+        width: 80px;  /* Adjusts the width of the logo */
+        height: 80px; /* Adjusts the height of the logo */
+    }
+
+    .nav {
+        gap: 30px; /* Adjusts the gap between links */
+    }
+
+    .main-title {
+        font-size: 36px; /* Adjusts the font size */
+    }
+
+    .sub-title {
+        font-size: 22px; /* Adjusts the font size */
+    }
+
+    .container {
+        padding-left: 0px;
+        padding-right: 0px;
+    }
+
+    .albums .featured-album{
+        display: none;  /* Hides the featured album */
+    }
+    
+    .albums .featured-album,
+    .albums .album-covers {
+        width: 100%; /* Sets the width of the album covers */
+    }
+
+    .grid-container {
+        column-count: 1; /* Adjusts the number of columns */
+    }
+
+    .grid-container h1{
+        text-align: center; /* Centers the heading */
+    }
+
+    .profile {
+        width: 130px;   /* Sets the width of the profile */
+        height: 130px; /* Sets the height of the profile */
+    }
+}
+
+/* Desktop (1024px and up) */
+@media (min-width: 1024px) {
+    .header .logo {
+        width: 200px;  /* Adjusts the width of the logo */
+        height: 200px; /* Adjusts the height of the logo */
+    }
+
+    .nav {
+        gap: 50px; /* Adjusts the gap between links */
+    }
+
+    .main-title {
+        font-size: 48px; /* Adjusts the font size */
+    }
+
+    .sub-title {
+        font-size: 24px; /* Adjusts the font size */
+    }
+
+   
+
+    .content-container .first-paragraph {
+        margin-right: 30px; /* Adjusts the margin */
+    }
+
+    .albums .featured-album,
+    .albums .album-covers {
+        width: 50%; /* Sets the width of the album covers */
+    }
+
+    .grid-container {
+        column-count: 3; /* Adjusts the number of columns */
+    }
+
+    .profile {
+        width: 150px;   /* Sets the width of the profile */
+        height: 150px; /* Sets the height of the profile */
+    }
+}
