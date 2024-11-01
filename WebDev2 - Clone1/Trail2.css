@@ -1,0 +1,582 @@
+/* Adding the font I found on Google */
+@import url('https://fonts.googleapis.com/css2?family=Protest+Guerrilla&display=swap');
+
+/* Making the page look nice */
+body {
+    font-family: 'Josefin Sans', sans-serif;
+    background-color: #d3d3d3;
+    margin: 0px;
+    padding: 0px;
+    /* trying different ways to center things */
+    display: block;
+    position: relative;
+}
+
+/* The main box that holds everything */
+.container {
+    background-color: white;
+    width: 80%;
+    /* centering the container */
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    /* adding some space inside just in case */
+    padding: 0px;
+    /* making sure it stays in place */
+    position: relative;
+    display: block;
+}
+
+/* Making the header look good */
+.header {
+    /* tried different ways to center stuff */
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+    display: block;
+    margin-bottom: 20px;
+    /* adding extra padding to make it look better */
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+/* Styling the logo */
+.header .logo {
+    width: 120px;
+    height: 120px;
+    /* making the logo round */
+    border-radius: 100%;
+    border-radius: 50%;
+    border: 2px solid black;
+    border: 2px solid #000000;
+    /* trying to center the logo */
+    display: inline-block;
+    margin: auto;
+    line-height: 120px;
+    text-align: center;
+    /* adding the image */
+    background-image: url("Images/logo.jpg");
+    background-size: 120%;
+    background-position: center center;
+    background-repeat: no-repeat;
+    /* making sure the image looks good */
+    overflow: hidden;
+}
+
+/* Navigation bar styles */
+.nav {
+    /* making links go horizontal */
+    display: flex;
+    display: -webkit-flex;
+    /* centering the navigation */
+    justify-content: center;
+    -webkit-justify-content: center;
+    align-items: center;
+    -webkit-align-items: center;
+    /* space between links */
+    margin-bottom: 40px;
+    gap: 40px;
+}
+
+/* Making the links look nice */
+.nav a {
+    text-decoration: none;
+    color: black;
+    color: #000000;
+    font-size: 1.2em;
+    /* tried different ways to make links stand out */
+    padding: 5px;
+    transition: all 0.3s;
+}
+
+/* Main title styles */
+.main-title {
+    /* using the cool font I found */
+    font-family: "Protest Guerrilla";
+    font-family: "Protest Guerrilla", sans-serif;
+    font-weight: bold;
+    text-align: left;
+    /* trying different ways to align text */
+    display: block;
+    position: relative;
+}
+
+/* Styling the introduction part */
+.introduction {
+    padding: 50px;
+    padding-bottom: 0px;
+    /* tried different margins */
+    margin: 0;
+    margin-bottom: 20px;
+    /* making sure text looks good */
+    line-height: 1.5;
+    position: relative;
+}
+
+/* Making the title big */
+.main-title h1 {
+    font-size: 2em;
+    font-size: 32px;
+    margin: 0;
+    /* tried different ways to style the text */
+    font-weight: bold;
+    display: block;
+}
+
+/* Subtitle styles */
+.sub-title h2 {
+    margin: 0%;
+    margin: 0px;
+    /* trying different font sizes */
+    font-size: 24px;
+}
+
+.sub-title {
+    font-size: 24px;
+    text-align: left;
+    margin-bottom: 40px;
+    font-family: "Protest Guerrilla";
+    /* tried different styles */
+    display: block;
+    position: relative;
+}
+
+/* Styling the content */
+.content-container {
+    width: 100%;
+    width: 100vw;
+    margin: 20px 0;
+    /* tried different display options */
+    display: block;
+    position: relative;
+}
+
+/* Text styling */
+.text-item {
+    margin-bottom: 15px;
+    font-size: 16px;
+    /* tried different line heights */
+    line-height: 1.2;
+    line-height: 120%;
+}
+
+.first-paragraph {
+    margin: 0;
+    font-size: 18px;
+    /* making text readable */
+    line-height: 1.5;
+    display: block;
+}
+
+/* Making the grid layout */
+.grid-container {
+    /* tried different column numbers */
+    column-count: 3;
+    -webkit-column-count: 3;
+    padding: 50px;
+    padding-top: 0px;
+    /* adding extra space just in case */
+    margin: 0;
+    position: relative;
+}
+
+/* Heading styles */
+h1 {
+    font-family: "Protest Guerrilla";
+    /* tried different styles */
+    display: block;
+    position: relative;
+}
+
+.heading {
+    font-size: 70px;
+    /* tried different weights */
+    font-weight: bold;
+    font-weight: 700;
+    margin-bottom: 15px;
+}
+
+/* Paragraph styles */
+p {
+    font-size: 16px;
+    /* tried different line heights */
+    line-height: 1.5;
+    line-height: 150%;
+    margin-bottom: 10px;
+}
+
+/* Album section styles */
+.albums {
+    /* making albums go side by side */
+    display: flex;
+    display: -webkit-flex;
+    width: 100%;
+    width: 100vw;
+    gap: 0px;
+    /* tried different positions */
+    position: relative;
+}
+
+/* Featured album styles */
+.albums .featured-album {
+    width: 50%;
+    /* centering everything */
+    display: flex;
+    display: -webkit-flex;
+    align-items: center;
+    -webkit-align-items: center;
+    justify-content: center;
+    -webkit-justify-content: center;
+    font-size: 18px;
+}
+
+/* Album covers section */
+.albums .album-covers {
+    width: 50%;
+    /* tried different ways to layout albums */
+    display: flex;
+    display: -webkit-flex;
+    flex-wrap: wrap;
+    -webkit-flex-wrap: wrap;
+    align-items: center;
+    -webkit-align-items: center;
+    justify-content: center;
+    -webkit-justify-content: center;
+    font-size: 14px;
+}
+
+.albums .album-covers .album-cover {
+    width: 50%;
+    /* making sure images look good */
+    position: relative;
+    display: block;
+}
+
+/* Author section styles */
+.author-section {
+    /* centering everything */
+    display: flex;
+    display: -webkit-flex;
+    align-items: center;
+    -webkit-align-items: center;
+    justify-content: center;
+    -webkit-justify-content: center;
+    width: 100%;
+    width: 100vw;
+    /* adding space around */
+    padding-bottom: 20px;
+    margin: 20px 0;
+}
+
+/* Text section styles */
+.text-section {
+    max-width: 60%;
+    /* tried different alignments */
+    text-align: left;
+    position: relative;
+}
+
+.text-section h1 {
+    /* centering the heading */
+    text-align: center;
+    margin: auto;
+}
+
+/* Profile picture styles */
+.profile {
+    width: 150px;
+    height: 150px;
+    /* making the profile picture round */
+    border: 2px solid black;
+    border: 2px solid #000000;
+    border-radius: 100%;
+    border-radius: 50%;
+    /* centering the image */
+    display: flex;
+    display: -webkit-flex;
+    align-items: center;
+    -webkit-align-items: center;
+    justify-content: center;
+    -webkit-justify-content: center;
+    overflow: hidden;
+}
+
+.profile-img {
+    width: 100%;
+    height: 100%;
+    /* making sure the image is round */
+    border-radius: 100%;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+/* Footer styles */
+.footer {
+    margin-top: 20px;
+    font-size: 14px;
+    /* centering footer text */
+    text-align: center;
+    align-items: center;
+    /* footer colors */
+    background-color: #14181d;
+    color: aliceblue;
+    padding: 20px;
+    /* making sure footer stays at bottom */
+    position: relative;
+    display: block;
+}
+
+/* Making it work on phones - small */
+@media (max-width: 539px) {
+    /* making everything smaller */
+    .header .logo {
+        width: 80px;
+        height: 80px;
+    }
+
+    .nav {
+        gap: 12px;
+        /* tried different spacing */
+        margin: 10px;
+    }
+
+    .main-title {
+        font-size: 24px;
+        /* centering on mobile */
+        text-align: center;
+    }
+
+    .sub-title {
+        font-size: 16px;
+        /* tried different alignments */
+        text-align: center;
+    }
+
+    .container {
+        padding: 12px;
+        /* making it full width on mobile */
+        width: 100%;
+    }
+
+    /* fixing albums on mobile */
+    .albums {
+        flex-direction: column;
+        -webkit-flex-direction: column;
+    }
+
+    .albums .featured-album {
+        display: none;
+        /* tried different ways to hide */
+        visibility: hidden;
+    }
+
+    .albums .featured-album,
+    .albums .album-covers {
+        width: 100%;
+        /* stacking albums */
+        flex-direction: column;
+        -webkit-flex-direction: column;
+    }
+
+    .albums .album-covers .album-cover {
+        width: 100%;
+    }
+
+    .albums .album-cover img {
+        width: 100%;
+    }
+
+    /* fixing grid on mobile */
+    .grid-container {
+        column-count: 1;
+        -webkit-column-count: 1;
+    }
+
+    .grid-container h1 {
+        text-align: center;
+    }
+
+    /* fixing author section on mobile */
+    .author-section {
+        flex-direction: column-reverse;
+        -webkit-flex-direction: column-reverse;
+    }
+
+    .profile {
+        width: 100px;
+        height: 100px;
+        margin-bottom: 12px;
+    }
+
+    .text-section {
+        max-width: 100%;
+        /* tried different widths */
+        width: 100%;
+    }
+
+    .text-section h1 {
+        text-align: center;
+        /* tried different alignments */
+        margin: auto;
+    }
+}
+
+/* Making it work on bigger phones */
+@media (min-width: 540px) and (max-width: 719px) {
+    /* adjusting sizes for bigger phones */
+    .header .logo {
+        width: 80px;
+        height: 80px;
+    }
+
+    .nav {
+        gap: 20px;
+        /* tried different margins */
+        margin: 15px;
+    }
+
+    .main-title {
+        font-size: 32px;
+    }
+
+    .sub-title {
+        font-size: 20px;
+    }
+
+    .container {
+        padding: 20px;
+    }
+
+    /* fixing albums */
+    .albums .featured-album {
+        display: none;
+        visibility: hidden;
+    }
+
+    .albums .featured-album,
+    .albums .album-covers {
+        width: 100%;
+        /* tried different widths */
+        max-width: 100%;
+    }
+
+    .albums .featured-album,
+    .albums .album-covers img {
+        height: 100%;
+    }
+
+    /* fixing grid */
+    .grid-container {
+        column-count: 1;
+        -webkit-column-count: 1;
+    }
+
+    .grid-container h1 {
+        text-align: center;
+    }
+
+    .profile {
+        width: 120px;
+        height: 120px;
+    }
+}
+
+/* Making it work on tablets */
+@media (min-width: 720px) and (max-width: 1023px) {
+    /* adjusting for tablets */
+    .header .logo {
+        width: 80px;
+        height: 80px;
+    }
+
+    .nav {
+        gap: 30px;
+    }
+
+    .main-title {
+        font-size: 36px;
+    }
+
+    .sub-title {
+        font-size: 22px;
+    }
+
+    .container {
+        padding-left: 0px;
+        padding-right: 0px;
+    }
+
+    /* fixing albums for tablets */
+    .albums .featured-album {
+        display: none;
+        visibility: hidden;
+    }
+    
+    .albums .featured-album,
+    .albums .album-covers {
+        width: 100%;
+    }
+
+    /* fixing grid for tablets */
+    .grid-container {
+        column-count: 1;
+        -webkit-column-count: 1;
+    }
+
+    .grid-container h1 {
+        text-align: center;
+    }
+
+    .profile {
+        width: 130px;
+        height: 130px;
+    }
+}
+
+/* Making it work on computers */
+@media (min-width: 1024px) {
+    /* making everything bigger for computers */
+    .header .logo {
+        width: 200px;
+        height: 200px;
+    }
+
+    .nav {
+        gap: 50px;
+        /* tried different spacing */
+        margin: 20px;
+    }
+
+    .main-title {
+        font-size: 48px;
+    }
+
+    .sub-title {
+        font-size: 24px;
+    }
+
+    /* fixing paragraph spacing */
+    .content-container .first-paragraph {
+        margin-right: 30px;
+    }
+
+    /* fixing albums for desktop */
+    .albums .featured-album,
+    .albums .album-covers {
+        width: 50%;
+        /* tried different widths */
+        max-width: 50%;
+    }
+
+    /* fixing grid for desktop */
+    .grid-container {
+        column-count: 3;
+        -webkit-column-count: 3;
+    }
+
+    .profile {
+        width: 150px;
+        height: 150px;
+    }
+}
