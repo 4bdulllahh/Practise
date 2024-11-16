@@ -16,7 +16,7 @@ e1 = Entry(root,font=("tahoma",12))
 e1.place(x=120, y=20)
 
 #Create a button
-b1 = Button(root, text = "Show Name", fg="yellow", bg="#001111",font=("tahoma",12))
+b1 = Button(root, text = "Show Name", fg="yellow", bg="#001111",font=("tahoma",12), command=greetuser )
 b1.place(x=140,y=60)
 
 #Create a label to display name
