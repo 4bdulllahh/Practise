@@ -1,241 +1,130 @@
+import tkinter as tk
+from tkinter import messagebox
 import random
-from tkinter import *
-import os
 
-class MathQuiz:
-    def __init__(self, root):
-        self.root = root
-        self.root.title("Math Quiz Game")
-        self.root.geometry("1024x768")
-        
-        self.title_font = ('Helvetica', 36, 'bold')
-        self.button_font = ('Helvetica', 18)
-        self.text_font = ('Helvetica', 22)
-        
-        self.score = 0
-        self.question_number = 0
-        self.current_answer = 0
-        self.attempts = 0
-        
-        self.image_path = "C:/YourLocalPath/background.jpg"  # Replace with your image path
-        
-        self.current_frame = None
-        self.show_menu()
-    
-    def set_background(self, frame):
-        try:
-            img = Image.open(self.image_path)
-            img = img.resize((1024, 768), Image.Resampling.LANCZOS)
-            bg_img = ImageTk.PhotoImage(img)
-            bg_label = Label(frame, image=bg_img)
-            bg_label.image = bg_img
-            bg_label.place(x=0, y=0, relwidth=1, relheight=1)
-        except Exception as e:
-            print(f"Error loading background: {e}")
-            frame.configure(bg='#f0f0f0')
-    
-    def create_styled_button(self, parent, text, command):
-        button = Button(parent, 
-                       text=text,
-                       command=command,
-                       font=self.button_font,
-                       bg='#4a90e2',
-                       fg='white',
-                       activebackground='#357abd',
-                       activeforeground='white',
-                       relief=RAISED,
-                       width=20,
-                       pady=10)
-        button.bind('<Enter>', lambda e: button.config(bg='#357abd'))
-        button.bind('<Leave>', lambda e: button.config(bg='#4a90e2'))
-        return button
-    
-    def show_menu(self):
-        if self.current_frame:
-            self.current_frame.destroy()
-            
-        self.current_frame = Frame(self.root)
-        self.current_frame.pack(fill=BOTH, expand=True)
-        
-        self.set_background(self.current_frame)
-        
-        title_frame = Frame(self.current_frame, bg='#ffffff80')
-        title_frame.pack(pady=50)
-        
-        Label(title_frame, 
-              text="MATH CHALLENGE", 
-              font=self.title_font,
-              bg='#ffffff80',
-              fg='#2c3e50').pack(pady=20)
-        
-        button_frame = Frame(self.current_frame, bg='#ffffff80')
-        button_frame.pack(pady=30)
-        
-        difficulties = [("BEGINNER", 1), ("INTERMEDIATE", 2), ("EXPERT", 3)]
-        for text, level in difficulties:
-            self.create_styled_button(button_frame, 
-                                    text, 
-                                    lambda l=level: self.start_quiz(l)).pack(pady=15)
-    
-    def randomInt(self, difficulty):
-        ranges = {1: (0, 9), 2: (10, 99), 3: (1000, 9999)}
-        min_val, max_val = ranges[difficulty]
-        return random.randint(min_val, max_val)
-    
-    def decideOperation(self):
-        return random.choice(['+', '-'])
-    
-    def displayProblem(self):
-        if self.current_frame:
-            self.current_frame.destroy()
-            
-        self.current_frame = Frame(self.root)
-        self.current_frame.pack(fill=BOTH, expand=True)
-        
-        self.set_background(self.current_frame)
-        
-        problem_frame = Frame(self.current_frame, bg='#ffffff80')
-        problem_frame.pack(expand=True)
-        
-        num1 = self.randomInt(self.difficulty)
-        num2 = self.randomInt(self.difficulty)
-        operation = self.decideOperation()
-        
-        self.current_answer = num1 + num2 if operation == '+' else num1 - num2
-        
-        Label(problem_frame, 
-              text=f"Question {self.question_number + 1}/10",
-              font=self.text_font,
-              bg='#ffffff80',
-              fg='#2c3e50').pack(pady=20)
-              
-        Label(problem_frame,
-              text=f"{num1} {operation} {num2} = ",
-              font=('Helvetica', 32, 'bold'),
-              bg='#ffffff80',
-              fg='#2c3e50').pack(pady=20)
-        
-        self.answer_entry = Entry(problem_frame,
-                                font=self.text_font,
-                                width=10,
-                                justify='center')
-        self.answer_entry.pack(pady=20)
-        
-        self.create_styled_button(problem_frame, 
-                                "Submit",
-                                self.checkAnswer).pack(pady=20)
-        
-        Label(problem_frame,
-              text=f"Score: {self.score}",
-              font=self.text_font,
-              bg='#ffffff80',
-              fg='#2c3e50').pack(pady=20)
-    
-    def checkAnswer(self):
-        try:
-            user_answer = int(self.answer_entry.get())
-            if user_answer == self.current_answer:
-                self.score += 10 if self.attempts == 0 else 5
-                self.question_number += 1
-                self.attempts = 0
-                
-                if self.question_number < 10:
-                    self.displayProblem()
-                else:
-                    self.displayResults()
+# Function to display the difficulty menu
+def displayMenu():
+    menu_frame.pack()
+    quiz_frame.pack_forget()
+    results_frame.pack_forget()
+
+# Function to start the quiz based on selected difficulty
+def startQuiz(level):
+    global difficulty, question_count, score
+    difficulty = level
+    question_count = 0
+    score = 0
+    menu_frame.pack_forget()
+    quiz_frame.pack()
+    generateQuestion()
+
+# Function to generate random integers based on difficulty
+def randomInt(level):
+    if level == 1:  # Easy
+        return random.randint(1, 9)
+    elif level == 2:  # Moderate
+        return random.randint(10, 99)
+    elif level == 3:  # Advanced
+        return random.randint(1000, 9999)
+
+# Function to decide operation (+ or -)
+def decideOperation():
+    return random.choice(["+", "-"])
+
+# Function to generate a question
+def generateQuestion():
+    global num1, num2, operation, question_count
+    question_count += 1
+    num1 = randomInt(difficulty)
+    num2 = randomInt(difficulty)
+    operation = decideOperation()
+    if operation == "-" and num2 > num1:  # Ensure no negative results
+        num1, num2 = num2, num1
+    question_label.config(text=f"Question {question_count}: {num1} {operation} {num2} = ")
+    answer_entry.delete(0, tk.END)
+
+# Function to check the user's answer
+def checkAnswer():
+    global score, question_count
+    try:
+        user_answer = int(answer_entry.get())
+    except ValueError:
+        messagebox.showerror("Error", "Please enter a valid number.")
+        return
+
+    correct_answer = eval(f"{num1} {operation} {num2}")
+    if user_answer == correct_answer:
+        score += 10 if attempts.get() == 1 else 5
+        attempts.set(1)  # Reset attempts
+        if question_count < 10:
+            generateQuestion()
+        else:
+            showResults()
+    else:
+        if attempts.get() == 1:
+            attempts.set(2)
+            messagebox.showinfo("Try Again", "Incorrect! You have one more attempt.")
+        else:
+            attempts.set(1)
+            if question_count < 10:
+                generateQuestion()
             else:
-                if self.attempts == 0:
-                    self.attempts += 1
-                    Label(self.current_frame,
-                          text="Try again!",
-                          font=self.text_font,
-                          bg='#ffffff80',
-                          fg='#e74c3c').pack(pady=10)
-                else:
-                    self.question_number += 1
-                    self.attempts = 0
-                    if self.question_number < 10:
-                        self.displayProblem()
-                    else:
-                        self.displayResults()
-        except ValueError:
-            Label(self.current_frame,
-                  text="Please enter a valid number!",
-                  font=self.text_font,
-                  bg='#ffffff80',
-                  fg='#e74c3c').pack(pady=10)
-    
-    def displayResults(self):
-        if self.current_frame:
-            self.current_frame.destroy()
-            
-        self.current_frame = Frame(self.root)
-        self.current_frame.pack(fill=BOTH, expand=True)
-        
-        self.set_background(self.current_frame)
-        
-        results_frame = Frame(self.current_frame, bg='#ffffff80')
-        results_frame.pack(expand=True)
-        
-        grade = self.calculateGrade()
-        
-        Label(results_frame,
-              text="FINAL RESULTS",
-              font=self.title_font,
-              bg='#ffffff80',
-              fg='#2c3e50').pack(pady=20)
-              
-        Label(results_frame,
-              text=f"Score: {self.score}/100",
-              font=self.text_font,
-              bg='#ffffff80',
-              fg='#2c3e50').pack(pady=20)
-              
-        Label(results_frame,
-              text=f"Grade: {grade}",
-              font=('Helvetica', 48, 'bold'),
-              bg='#ffffff80',
-              fg=self.getGradeColor(grade)).pack(pady=20)
-        
-        button_frame = Frame(results_frame, bg='#ffffff80')
-        button_frame.pack(pady=30)
-        
-        self.create_styled_button(button_frame, 
-                                "Play Again",
-                                self.reset_game).pack(pady=10)
-        self.create_styled_button(button_frame,
-                                "Quit",
-                                self.root.quit).pack(pady=10)
-    
-    def getGradeColor(self, grade):
-        colors = {
-            'A+': '#27ae60',
-            'A': '#2ecc71',
-            'B': '#f1c40f',
-            'C': '#e67e22',
-            'D': '#e74c3c',
-            'F': '#c0392b'
-        }
-        return colors.get(grade, '#2c3e50')
-    
-    def calculateGrade(self):
-        grades = {90: 'A+', 80: 'A', 70: 'B', 60: 'C', 50: 'D'}
-        for threshold, grade in grades.items():
-            if self.score >= threshold:
-                return grade
-        return 'F'
-    
-    def reset_game(self):
-        self.score = 0
-        self.question_number = 0
-        self.attempts = 0
-        self.show_menu()
-    
-    def start_quiz(self, difficulty):
-        self.difficulty = difficulty
-        self.displayProblem()
+                showResults()
 
-if __name__ == "__main__":
-    root = Tk()
-    game = MathQuiz(root)
-    root.mainloop()
+# Function to display the results
+def showResults():
+    quiz_frame.pack_forget()
+    results_frame.pack()
+    grade = (
+        "A+" if score >= 90 else
+        "A" if score >= 80 else
+        "B" if score >= 70 else
+        "C" if score >= 60 else
+        "F"
+    )
+    results_label.config(text=f"Your final score is: {score}/100\nGrade: {grade}")
+
+# Function to restart the quiz
+def restartQuiz():
+    displayMenu()
+
+# Tkinter setup
+root = tk.Tk()
+root.title("Arithmetic Quiz")
+
+# Variables
+difficulty = 1
+num1 = num2 = 0
+operation = "+"
+question_count = 0
+score = 0
+attempts = tk.IntVar(value=1)
+
+# Menu Frame
+menu_frame = tk.Frame(root)
+menu_label = tk.Label(menu_frame, text="Select Difficulty Level", font=("Helvetica", 16))
+menu_label.pack(pady=10)
+tk.Button(menu_frame, text="Easy", font=("Helvetica", 12), command=lambda: startQuiz(1)).pack(pady=5)
+tk.Button(menu_frame, text="Moderate", font=("Helvetica", 12), command=lambda: startQuiz(2)).pack(pady=5)
+tk.Button(menu_frame, text="Advanced", font=("Helvetica", 12), command=lambda: startQuiz(3)).pack(pady=5)
+
+# Quiz Frame
+quiz_frame = tk.Frame(root)
+question_label = tk.Label(quiz_frame, text="", font=("Helvetica", 14))
+question_label.pack(pady=10)
+answer_entry = tk.Entry(quiz_frame, font=("Helvetica", 12))
+answer_entry.pack(pady=5)
+tk.Button(quiz_frame, text="Submit Answer", font=("Helvetica", 12), command=checkAnswer).pack(pady=10)
+
+# Results Frame
+results_frame = tk.Frame(root)
+results_label = tk.Label(results_frame, text="", font=("Helvetica", 16))
+results_label.pack(pady=10)
+tk.Button(results_frame, text="Play Again", font=("Helvetica", 12), command=restartQuiz).pack(pady=5)
+tk.Button(results_frame, text="Quit", font=("Helvetica", 12), command=root.quit).pack(pady=5)
+
+# Start with the menu
+displayMenu()
+
+# Run the application
+root.mainloop()

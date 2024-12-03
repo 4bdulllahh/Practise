@@ -1,92 +1,68 @@
 import tkinter as tk
-from tkinter import ttk, messagebox
 import random
-import os
 
-class JokeTeller:
-    def __init__(self, root):
-        self.root = root
-        self.root.title("Alexa Joke Teller")
-        self.root.geometry("500x300")
-        
-        # Initialize jokes with error handling
-        try:
-            self.jokes = self.load_jokes('Task2/resources/randomJokes.txt')
-            if not self.jokes:
-                raise ValueError("No valid jokes found in the file")
-        except (FileNotFoundError, ValueError) as e:
-            messagebox.showerror("Error", f"Failed to load jokes: {str(e)}")
-            self.jokes = [["Why did the programmer quit his job", "Because he didn't get arrays"]]
-        
-        self.current_joke = None
-        self.setup_ui()
-        
-    def load_jokes(self, filename):
-        if not os.path.exists(filename):
-            raise FileNotFoundError(f"Jokes file not found: {filename}")
-            
-        with open(filename, 'r', encoding='utf-8') as file:
-            jokes = []
-            for line in file:
-                line = line.strip()
-                if '?' in line:
-                    # Split only on the first question mark
-                    parts = line.split('?', 1)
-                    if len(parts) == 2 and parts[0] and parts[1].strip():
-                        jokes.append([parts[0], parts[1].strip()])
-            return jokes
-            
-    def setup_ui(self):
-        self.frame = ttk.Frame(self.root, padding="10")
-        self.frame.pack(fill=tk.BOTH, expand=True)
-        
-        # Style configuration
-        style = ttk.Style()
-        style.configure('TLabel', font=('Arial', 12))
-        style.configure('TButton', font=('Arial', 10))
-        
-        self.joke_text = ttk.Label(self.frame, wraplength=400, justify='center')
-        self.joke_text.pack(pady=20)
-        self.joke_text.config(text="Say 'Alexa tell me a joke'")
-        
-        entry_frame = ttk.Frame(self.frame)
-        entry_frame.pack(fill=tk.X, pady=10)
-        
-        self.entry = ttk.Entry(entry_frame, font=('Arial', 10))
-        self.entry.pack(fill=tk.X, padx=5)
-        self.entry.bind('<Return>', self.process_input)
-        self.entry.focus_set()  # Set focus to entry
-        
-        btn_frame = ttk.Frame(self.frame)
-        btn_frame.pack(pady=10)
-        
-        ttk.Button(btn_frame, text="Tell Joke", command=self.process_input).pack(side=tk.LEFT, padx=5)
-        self.reveal_btn = ttk.Button(btn_frame, text="Show Punchline", 
-                                   command=self.show_punchline, state=tk.DISABLED)
-        self.reveal_btn.pack(side=tk.LEFT, padx=5)
-        ttk.Button(btn_frame, text="Quit", command=self.root.quit).pack(side=tk.LEFT, padx=5)
-    
-    def process_input(self, event=None):
-        command = self.entry.get().lower().strip()
-        if 'alexa' in command and 'joke' in command:
-            self.tell_new_joke()
-        elif command:  # If there's any input but not the correct command
-            self.joke_text.config(text="Please say 'Alexa tell me a joke'")
-            self.reveal_btn.config(state=tk.DISABLED)
-        self.entry.delete(0, tk.END)
-        
-    def tell_new_joke(self):
-        if self.jokes:
-            self.current_joke = random.choice(self.jokes)
-            self.joke_text.config(text=f"{self.current_joke[0]}?")
-            self.reveal_btn.config(state=tk.NORMAL)
-        
-    def show_punchline(self):
-        if self.current_joke:
-            self.joke_text.config(text=f"{self.current_joke[0]}?\n\n{self.current_joke[1]}")
-            self.reveal_btn.config(state=tk.DISABLED)
+# Function to load jokes from the file
+def load_jokes(file_path):
+    try:
+        with open(file_path, 'r') as file:
+            jokes = file.readlines()
+        jokes = [j.strip() for j in jokes if "?" in j]  # Ensure valid jokes with question mark
+        return jokes
+    except FileNotFoundError:
+        return []
 
-if __name__ == "__main__":
-    root = tk.Tk()
-    app = JokeTeller(root)
-    root.mainloop()
+# Function to display a random joke setup
+def show_joke():
+    global current_joke
+    if jokes:
+        current_joke = random.choice(jokes)
+        setup, punchline = current_joke.split("?", 1)
+        setup_label.config(text=setup + "?")
+        punchline_label.config(text="")
+    else:
+        setup_label.config(text="No jokes found!")
+        punchline_label.config(text="")
+
+# Function to show the punchline
+def show_punchline(event):
+    if current_joke:
+        _, punchline = current_joke.split("?", 1)
+        punchline_label.config(text=punchline)
+
+# Function to quit the program
+def quit_program():
+    root.destroy()
+
+# Initialize jokes
+file_path = "resources/randomJokes.txt"  # Updated file path
+jokes = load_jokes(file_path)
+current_joke = None
+
+# Tkinter GUI setup
+root = tk.Tk()
+root.title("Random Joke Generator")
+
+# Set the background image (empty for now)
+background_label = tk.Label(root)
+background_label.place(relwidth=1, relheight=1)
+
+# Setup joke display elements
+setup_label = tk.Label(root, text="", font=("Helvetica", 16), wraplength=400, bg="white", fg="black")
+setup_label.pack(pady=20)
+
+punchline_label = tk.Label(root, text="", font=("Helvetica", 14), wraplength=400, bg="white", fg="black")
+punchline_label.pack(pady=10)
+
+# Button to request a new joke
+joke_button = tk.Button(root, text="Alexa, tell me a joke", command=show_joke, font=("Helvetica", 12))
+joke_button.pack(pady=10)
+
+# Button to quit the program
+quit_button = tk.Button(root, text="Quit", command=quit_program, font=("Helvetica", 12))
+quit_button.pack(pady=10)
+
+# Bind keypress event to show the punchline
+root.bind("<Return>", show_punchline)
+
+# Run the GUI
+root.mainloop()
